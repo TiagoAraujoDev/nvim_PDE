@@ -14,10 +14,16 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd("UIEnter", {
   desc = "Configure Alpha footer",
   callback = function()
+    local get_icon = require("utils.icons").get_icon
     local stats = require("lazy").stats()
     local ms = string.format("%.2f", stats.startuptime)
-    dashboard.section.footer.val =
-      { " ", " ", " ", "󰉁 Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms 󰅒" }
+
+    dashboard.section.footer.val = {
+      " ",
+      " ",
+      " ",
+      get_icon("Bolt", 1) .. "Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms " .. get_icon "Clock",
+    }
     dashboard.section.footer.opts.hl = "DashboardFooter"
     pcall(vim.cmd.AlphaRedraw)
   end,

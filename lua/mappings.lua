@@ -1,13 +1,14 @@
 local utils = require "utils.mappings-helper"
 local maps = utils.empty_map_table()
+local get_icon = require("utils.icons").get_icon
 
 local sections = {
-  f = { desc = "󰭎 Telescope" },
-  l = { desc = " LSP" },
-  b = { desc = "󰁨 Bqf" },
-  g = { desc = "󰊢 Git" },
-  s = { desc = " Spectre" },
-  t = { desc = "󱍼 Trouble" },
+  f = { desc = get_icon("Telescope", 1) .. "Telescope" },
+  l = { desc = get_icon("LSP", 1) .. "LSP" },
+  b = { desc = get_icon("Bqf", 1) .. "Bqf" },
+  g = { desc = get_icon("Git", 1) .. "Git" },
+  s = { desc = get_icon("Spectre", 1) .. "Spectre" },
+  t = { desc = get_icon("Trouble", 1) .. "Trouble" },
 }
 
 -- Normal --
@@ -201,7 +202,7 @@ maps.n["<leader>fW"] = {
 }
 maps.n["<leader>fp"] = {
   function()
-    require("telescope").extensions.projects.projects { initial_mode = "normal" }
+    require("telescope").extensions.projects.projects { initial_mode = "normal"}
   end,
   desc = "Find projects",
 }

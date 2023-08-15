@@ -5,6 +5,8 @@ local M = {
   cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
 }
 
+local get_icon = require("utils.icons").get_icon
+
 M.opts = {
   position = "bottom", -- position of the list can be: bottom, top, left, right
   height = 20, -- height of the trouble list when position is top or bottom
@@ -12,8 +14,8 @@ M.opts = {
   icons = true, -- use devicons for filenames
   mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
   severity = nil, -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
-  fold_open = " ", -- icon used for open folds
-  fold_closed = " ", -- icon used for closed folds
+  fold_open = get_icon("ChevronDown", 1), -- icon used for open folds
+  fold_closed = get_icon("ChevronRight", 1), -- icon used for closed folds
   group = true, -- group results by file
   padding = true, -- add an extra new line on top of the list
   cycle_results = true, -- cycle item list when reaching beginning or end of list
@@ -47,11 +49,11 @@ M.opts = {
   auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
   signs = {
     -- icons / text used for a diagnostic
-    error = "",
-    warning = "",
-    hint = "",
-    information = "",
-    other = "",
+    error = get_icon("Error"),
+    warning = get_icon("Warning"),
+    hint = get_icon("Hint"),
+    information = get_icon("Information"),
+    other = get_icon("Question"),
   },
   use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 }

@@ -4,6 +4,8 @@ local M = {
   event = "VeryLazy",
 }
 
+local get_icon = require("utils.icons").get_icon
+
 M.opts = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -38,8 +40,9 @@ M.opts = {
     count = true,
   },
   icons = {
-    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-    separator = "➜", -- symbol used between a key and it's label
+    breadcrumb = get_icon("DoubleChevronRight"), -- symbol used in the command line area that shows your active key combo
+    -- separator = "➜", -- symbol used between a key and it's label
+    separator = get_icon("ArrowRight"), -- symbol used between a key and it's label
     group = "", -- symbol prepended to a group
   },
   popup_mappings = {

@@ -31,13 +31,15 @@ function M.config()
   }
 
   local button = require("utils.alpha-helper").alpha_button
+  local get_icon = require("utils.icons").get_icon
+
   dashboard.section.buttons.val = {
-    button("LDR   a", " " .. " New file"),
-    button("LDR f f", "󰈞 " .. " Find file"),
-    button("LDR f p", " " .. " Find project"),
-    button("LDR f w", "󱎸 " .. " Find text"),
-    button("LDR   C", " " .. " Configuration"),
-    button("LDR   q", " " .. " Quit"),
+    button("LDR   a", get_icon("NewFile", 1) .. " New file"),
+    button("LDR f f", get_icon("FindFile", 1) .. " Find file"),
+    button("LDR f p", get_icon("Repository", 1) .. " Find project"),
+    button("LDR f w", get_icon("FindText", 1) .. " Find text"),
+    button("LDR   C", get_icon("Gear", 1) .. " Configuration"),
+    button("LDR   q", get_icon("Quit", 1) .. " Quit"),
   }
 
   dashboard.section.header.opts.hl = "DashboardHeader"

@@ -37,7 +37,7 @@ local M = {
     },
     {
       "onsails/lspkind.nvim",
-      commit = "57610d5ab560c073c465d6faf0c19f200cb67e6e"
+      commit = "57610d5ab560c073c465d6faf0c19f200cb67e6e",
     },
   },
   event = {
@@ -54,6 +54,7 @@ function M.config()
 
   local luasnip = require "luasnip"
   local lspkind = require "lspkind"
+  local get_icon = require("utils.icons").get_icon
   require("luasnip/loaders/from_vscode").lazy_load()
 
   local check_backspace = function()
@@ -63,37 +64,38 @@ function M.config()
 
   local border_opts = {
     -- border = "single",
-    border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
+    border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
   }
 
   local kind_icons = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "󰊄",
-    Codeium = "󰚩",
-    Copilot = "",
+    -- TODO: Add Array and Boolean icons
+    Text = get_icon "Text",
+    Method = get_icon "Method",
+    Function = get_icon "Function",
+    Constructor = get_icon "Constructor",
+    Field = get_icon "Field",
+    Variable = get_icon "Variable",
+    Class = get_icon "Class",
+    Interface = get_icon "Interface",
+    Module = get_icon "Module",
+    Property = get_icon "Property",
+    Unit = get_icon "Unit",
+    Value = get_icon "Value",
+    Enum = get_icon "Enum",
+    Keyword = get_icon "Keyword",
+    Snippet = get_icon "Snippet",
+    Color = get_icon "Color",
+    File = get_icon "File",
+    Reference = get_icon "Reference",
+    Folder = get_icon "Folder",
+    EnumMember = get_icon "EnumMember",
+    Constant = get_icon "Constant",
+    Struct = get_icon "Struct",
+    Event = get_icon "Event",
+    Operator = get_icon "Operator",
+    TypeParameter = get_icon "TypeParameter",
+    Codeium = get_icon "Codeium",
+    Copilot = get_icon "Copilot",
   }
 
   cmp.setup {
@@ -146,9 +148,9 @@ function M.config()
     },
     formatting = {
       fields = { "abbr", "kind", "menu" },
-      format = lspkind.cmp_format({
-        symbol_map = kind_icons
-      }),
+      format = lspkind.cmp_format {
+        symbol_map = kind_icons,
+      },
     },
     sources = {
       { name = "nvim_lsp" },

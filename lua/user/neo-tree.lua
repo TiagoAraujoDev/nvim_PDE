@@ -6,6 +6,8 @@ local M = {
 }
 
 M.config = function()
+  local get_icon = require("utils.icons").get_icon
+
   require("neo-tree").setup {
     close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
@@ -31,19 +33,19 @@ M.config = function()
         padding = 1, -- extra padding on left hand side
         -- indent guides
         with_markers = true,
-        indent_marker = "│",
-        last_indent_marker = "└",
+        indent_marker = get_icon("LineMiddle"),
+        last_indent_marker = get_icon("LastIndentMarker"),
         highlight = "NeoTreeIndentMarker",
         -- expander config, needed for nesting files
         with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = "",
-        expander_expanded = "",
+        expander_collapsed = get_icon("ChevronRight"),
+        expander_expanded = get_icon("ChevronDown"),
         expander_highlight = "NeoTreeExpander",
       },
       icon = {
-        folder_closed = "",
-        folder_open = "",
-        folder_empty = "",
+        folder_closed = get_icon("Folder"),
+        folder_open = get_icon("FolderOpen"),
+        folder_empty = get_icon("EmptyFolderOpen"),
         -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
         -- then these will never be used.
         default = "*",
@@ -51,7 +53,7 @@ M.config = function()
       },
       modified = {
         -- symbol = "[+]",
-        symbol = " 󰛿 ",
+        symbol = get_icon("Modified"),
         highlight = "NeoTreeModified",
       },
       name = {
@@ -64,14 +66,14 @@ M.config = function()
           -- Change type
           added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
           modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-          deleted = "", -- this can only be used in the git_status source
-          renamed = "󰁕", -- this can only be used in the git_status source
+          deleted = get_icon("FileDeleted"), -- this can only be used in the git_status source
+          renamed = get_icon("FileRenamed"), -- this can only be used in the git_status source
           -- Status type
-          untracked = "󰩳",
-          ignored = "",
-          unstaged = "󰏬",
-          staged = "",
-          conflict = "",
+          untracked = get_icon("FileUntracked"),
+          ignored = get_icon("FileIgnored"),
+          unstaged = get_icon("FileUnstaged"),
+          staged = get_icon("FileStaged"),
+          conflict = get_icon("FileUnmerged"),
         },
       },
     },

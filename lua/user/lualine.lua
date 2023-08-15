@@ -10,6 +10,8 @@ function M.config()
     return
   end
 
+  local get_icon = require("utils.icons").get_icon
+
   local hide_in_width = function()
     return vim.fn.winwidth(0) > 80
   end
@@ -35,7 +37,7 @@ function M.config()
         mode = "WTF-Mode"
       end
 
-      return " " .. mode
+      return get_icon("Vim", 1) .. mode
     end,
     padding = 1,
   }
@@ -43,7 +45,7 @@ function M.config()
   local filename = {
     function()
       local helper = require "utils.filename-helper"
-      local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " 󰛿 " or ""
+      local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " " .. get_icon("Modified", 1) or ""
       return helper.filename() .. modified
     end,
   }
@@ -52,7 +54,7 @@ function M.config()
     "diagnostics",
     sources = { "nvim_diagnostic" },
     sections = { "error", "warn" },
-    symbols = { error = " ", warn = " " },
+    symbols = { error = get_icon("Error", 1), warn = get_icon("Warning", 1) },
     colored = true,
     always_visible = true,
   }
@@ -60,7 +62,7 @@ function M.config()
   local diff = {
     "diff",
     colored = true,
-    symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+    symbols = { added = get_icon("LineAdded", 1), modified = get_icon("LineModified", 1), removed = get_icon("LineRemoved", 1) }, -- changes diff symbols
     cond = hide_in_width,
   }
 
@@ -87,7 +89,7 @@ function M.config()
 
       local unique_client_names = vim.fn.uniq(buf_client_names)
 
-      local language_servers = " LSP: " .. table.concat(unique_client_names, ", ") .. " "
+      local language_servers = get_icon("Lsp", 1) .. "LSP: " .. table.concat(unique_client_names, ", ") .. " "
 
       return language_servers
     end,
@@ -101,7 +103,7 @@ function M.config()
       local highlighter = vim.treesitter.highlighter
       if highlighter.active[buf] then
         -- treesitter highlighting is enabled
-        return " TS"
+        return get_icon("Tree", 1) .. "TS"
       end
       return ""
     end,

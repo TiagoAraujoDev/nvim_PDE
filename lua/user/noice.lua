@@ -18,6 +18,8 @@ local M = {
   },
 }
 
+local get_icon = require("utils.icons").get_icon
+
 M.opts = {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -41,7 +43,7 @@ M.opts = {
       filter = { pattern = "^:%s*!", icon = "$ ", ft = "sh" },
       IncRename = {
         pattern = "^:%s*IncRename%s+",
-        icon = " ",
+        icon = get_icon("Rename"),
         conceal = true,
       },
     },

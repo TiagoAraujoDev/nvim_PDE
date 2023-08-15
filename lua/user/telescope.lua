@@ -13,11 +13,11 @@ local M = {
 local actions = require "telescope.actions"
 
 M.config = function()
+  local get_icon = require("utils.icons").get_icon
   require("telescope").setup {
     defaults = {
-      -- prompt_prefix = "  ",
-      prompt_prefix = "  ",
-      selection_caret = " ",
+      prompt_prefix = get_icon("Telescope", 2),
+      selection_caret = get_icon("Forward", 1),
       path_display = { "smart" },
       file_ignore_patterns = { ".git/", "node_modules" },
       mappings = {
