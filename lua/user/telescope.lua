@@ -28,6 +28,13 @@ M.config = function()
           ["<C-k>"] = actions.move_selection_previous,
         },
       },
+      layout_strategy = "vertical",
+      layout_config = {
+        height = 0.75,
+        width = 0.65,
+        prompt_position = "top"
+      },
+      sorting_strategy = "ascending"
     },
     extensions = {
       ["ui-select"] = {
@@ -40,6 +47,7 @@ M.config = function()
   }
 
   require("telescope").load_extension "ui-select"
+  require("telescope").load_extension "harpoon"
 end
 
 return M
