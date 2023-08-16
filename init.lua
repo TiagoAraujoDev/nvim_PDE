@@ -12,9 +12,6 @@ LuaJIT 2.1.0-beta3
 --
 
 --[[
-TODO:
-* Create a a function to get icons from a table
-
 PERFORMANCE: 
 * Refactor autocommands to add each autocommand to a augroup 
 ]]
