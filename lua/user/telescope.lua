@@ -17,7 +17,7 @@ M.config = function()
   require("telescope").setup {
     defaults = {
       prompt_prefix = get_icon("Telescope", 2),
-      selection_caret = get_icon("Forward", 1),
+      selection_caret = get_icon("Selected", 1),
       path_display = { "smart" },
       file_ignore_patterns = { ".git/", "node_modules" },
       mappings = {

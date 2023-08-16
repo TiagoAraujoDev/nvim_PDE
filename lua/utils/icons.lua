@@ -121,6 +121,7 @@ local icons = {
   Robot = "󰚩",
   Scopes = "",
   Search = "",
+  Selected = "",
   SignIn = "",
   SignOut = "",
   Smiley = "",
