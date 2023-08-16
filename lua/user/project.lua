@@ -4,8 +4,8 @@ local M = {
   dependencies = {
     {
       "nvim-telescope/telescope.nvim",
-      event = "Bufenter",
-      cmd = { "Telescope" },
+  --     event = "Bufenter",
+  --     cmd = { "Telescope" },
     },
   },
 }

@@ -1,7 +1,7 @@
 local M = {
   "NvChad/nvim-colorizer.lua",
   commit = "dde3084106a70b9a79d48f426f6d6fec6fd203f7",
-  event = "BufEnter",
+  event = "BufRead",
 }
 
 M.config = function()
@@ -22,7 +22,7 @@ M.config = function()
     user_default_options = {
       RGB = true, -- #RGB hex codes
       RRGGBB = true, -- #RRGGBB hex codes
-      names = true, -- "Name" codes like Blue or blue
+      names = false, -- "Name" codes like Blue or blue
       RRGGBBAA = true, -- #RRGGBBAA hex codes
       AARRGGBB = true, -- 0xAARRGGBB hex codes
       rgb_fn = false, -- CSS rgb() and rgba() functions

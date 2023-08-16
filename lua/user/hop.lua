@@ -1,7 +1,7 @@
 local M = {
   "phaazon/hop.nvim",
   commit = "03f0434869f1f38868618198b5f4f2ab6d39aef2",
-  event = "BufWinEnter",
+  event = "BufRead",
   branch = "v2",
 }
 

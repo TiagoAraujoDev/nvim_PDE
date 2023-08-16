@@ -14,6 +14,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd("UIEnter", {
   desc = "Configure Alpha footer",
   callback = function()
+    -- HACK: set an autocmd to disable statusline
+    vim.opt.laststatus = 0
+
     local get_icon = require("utils.icons").get_icon
     local stats = require("lazy").stats()
     local ms = string.format("%.2f", stats.startuptime)

@@ -1,7 +1,7 @@
 local M = {
   "folke/todo-comments.nvim",
   commit = "09b0b17d824d2d56f02ff15967e8a2499a89c731",
-  event = "VimEnter",
+  event = "BufReadPre",
   opts = {
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority

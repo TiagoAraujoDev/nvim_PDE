@@ -1,7 +1,7 @@
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
   commit = "93fcf0a3056c60829c0a210fe35523cda7ef0369",
-  event = "VimEnter",
+  cmd = "Neotree",
   branch = "v3.x",
 }
 

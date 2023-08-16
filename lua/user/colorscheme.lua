@@ -13,7 +13,8 @@ local colorscheme_table = {
   },
 }
 
-local colorscheme_selected = colorscheme_table.kanagawa
+local colorscheme = "kanagawa"
+local colorscheme_selected = colorscheme_table[colorscheme]
 
 local M = {
   colorscheme_selected.repo,
