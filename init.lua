@@ -11,11 +11,6 @@ LuaJIT 2.1.0-beta3
 ]]
 --
 
---[[
-PERFORMANCE: 
-* Refactor autocommands to add each autocommand to a augroup 
-]]
---
 if vim.g.vscode then
   require "vscode.options"
   require "vscode.keymaps"
