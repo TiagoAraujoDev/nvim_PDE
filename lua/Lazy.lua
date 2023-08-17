@@ -25,8 +25,8 @@ require("lazy").setup("user", {
     rtp = {
       disabled_plugins = {
         "gzip", -- Plugin for editing compressed files.
-        -- "matchit", -- What is it?
-        "matchparen", -- Plugin for showing matching parens
+        "matchit", -- What is it?
+        -- "matchparen", -- Plugin for showing matching parens
         "netrwPlugin", -- Handles file transfers and remote directory listing across a network
         "tarPlugin", -- Plugin for browsing tar files
         "tohtml", -- Converting a syntax highlighted file to HTML
