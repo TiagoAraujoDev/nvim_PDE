@@ -43,13 +43,13 @@ function M.config()
     padding = 1,
   }
 
-  local filename = {
-    function()
-      local helper = require "utils.filename-helper"
-      local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " " .. get_icon("Modified", 1) or ""
-      return helper.filename() .. modified
-    end,
-  }
+  -- local filename = {
+  --   function()
+  --     local helper = require "utils.filename-helper"
+  --     local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " " .. get_icon("Modified", 1) or ""
+  --     return helper.filename() .. modified
+  --   end,
+  -- }
 
   local diagnostics = {
     "diagnostics",
@@ -129,8 +129,8 @@ function M.config()
     sections = {
       lualine_a = { mode },
       lualine_b = { "branch" },
-      lualine_c = { filename },
-      lualine_x = { diagnostics, diff, lsp, treesitter },
+      lualine_c = { diagnostics },
+      lualine_x = { diff, lsp, treesitter },
       lualine_y = { location },
       lualine_z = { "progress" },
     },
