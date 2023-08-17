@@ -4,7 +4,7 @@ local isempty = function(text)
   return text == nil or text == ""
 end
 
-local getFormatPathName = function(path)
+local getPathTable = function(path)
   if not string.find(path, "/") then
     return path
   end
@@ -16,11 +16,13 @@ local getFormatPathName = function(path)
     table.insert(segments, segment)
   end
 
-  return segments[#segments - 1] .. "/" .. segments[#segments]
+  return segments
 end
 
-M.filename = function()
-  local file_name = getFormatPathName(vim.fn.expand "%:.")
+M.setup = function()
+  local get_icon = require("utils.icons").get_icon
+  local segments = getPathTable(vim.fn.expand "%:.")
+  local file_name = segments[#segments] or segments
 
   local extension = ""
   local file_icon = ""
@@ -43,13 +45,33 @@ M.filename = function()
       file_icon = ""
     end
 
-    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color, bg = "#282727" })
+    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color, bg = "#181616" })
 
-    local icon = "%#" .. hl_group .. "#" .. file_icon
-    local name = "%#" .. "lualine_c_normal" .. "#" .. file_name
-    local space = "%#" .. hl_group .. "#" .. " "
+    local icon = string.format("%%#%s#%s ", hl_group, file_icon)
+    local filename = string.format("%%#Normal#%s ", file_name)
+    local divider = string.format("%%#WinBar# %s", get_icon("DividerRight", 1))
+    local ellipsis = string.format("%%#WinBar# %s", get_icon("Ellipsis", 1))
 
-    return icon .. space .. name
+    local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " " .. get_icon("Modified", 1) or ""
+    modified = string.format("%%#Normal#%s", modified)
+
+    if #segments == 1 or type(segments) == "string" then
+      return icon .. filename .. modified
+    end
+
+    local path_name_table = {}
+    for index, value in ipairs(segments) do
+      if index == 1 and #segments > 1 then
+        table.insert(path_name_table, ellipsis)
+      elseif index == #segments then
+        goto continue
+      end
+      table.insert(path_name_table, divider)
+      table.insert(path_name_table, value)
+      ::continue::
+    end
+
+    return table.concat(path_name_table) .. divider .. icon .. filename .. modified
   end
 end
 

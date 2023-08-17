@@ -116,5 +116,16 @@ autocmd("BufWinEnter", {
   end,
 })
 
+autocmd({ "BufRead", "BufModifiedSet" }, {
+  desc = "Set winbar",
+  group = autogroup("winbar_setup", { clear = true }),
+  callback = function(event)
+    local path = require("utils.filename-helper").setup
+    if
+      vim.api.nvim_get_option_value("buftype", { buf = event.buf }) == ""
+    then
+      local path_name = path()
+      vim.opt_local.winbar = path_name or "" -- This empty string prevent if path return nil
+    end
   end,
 })
