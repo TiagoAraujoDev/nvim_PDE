@@ -4,7 +4,7 @@ local get_icon = require("utils.icons").get_icon
 
 local sections = {
   f = { desc = get_icon("Telescope", 1) .. "Telescope" },
-  l = { desc = get_icon("LSP", 1) .. "LSP" },
+  l = { desc = get_icon("Lsp", 1) .. "LSP" },
   b = { desc = get_icon("Bqf", 1) .. "Bqf" },
   g = { desc = get_icon("Git", 1) .. "Git" },
   s = { desc = get_icon("Spectre", 1) .. "Spectre" },
