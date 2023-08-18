@@ -13,8 +13,12 @@ local M = {
 local actions = require "telescope.actions"
 
 M.config = function()
+  local status_ok, telescope = pcall(require, "telescope")
+  if not status_ok then
+    return
+  end
   local get_icon = require("utils.icons").get_icon
-  require("telescope").setup {
+  telescope.setup {
     defaults = {
       prompt_prefix = get_icon("Telescope", 2),
       selection_caret = get_icon("Selected", 1),
@@ -32,9 +36,9 @@ M.config = function()
       layout_config = {
         height = 0.75,
         width = 0.65,
-        prompt_position = "top"
+        prompt_position = "top",
       },
-      sorting_strategy = "ascending"
+      sorting_strategy = "ascending",
     },
     extensions = {
       ["ui-select"] = {
@@ -46,8 +50,8 @@ M.config = function()
     },
   }
 
-  require("telescope").load_extension "ui-select"
-  require("telescope").load_extension "harpoon"
+  telescope.load_extension "ui-select"
+  telescope.load_extension "harpoon"
 end
 
 return M

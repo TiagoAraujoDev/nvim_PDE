@@ -40,9 +40,9 @@ M.opts = {
     count = true,
   },
   icons = {
-    breadcrumb = get_icon("DoubleChevronRight"), -- symbol used in the command line area that shows your active key combo
+    breadcrumb = get_icon "DoubleChevronRight", -- symbol used in the command line area that shows your active key combo
     -- separator = "➜", -- symbol used between a key and it's label
-    separator = get_icon("ArrowRight"), -- symbol used between a key and it's label
+    separator = get_icon "ArrowRight", -- symbol used between a key and it's label
     group = "", -- symbol prepended to a group
   },
   popup_mappings = {
@@ -97,7 +97,11 @@ M.opts = {
 }
 
 M.config = function(_, opts)
-  require("which-key").setup(opts)
+  local status_ok, wk = pcall(require, "which-key")
+  if not status_ok then
+    return
+  end
+  wk.setup(opts)
   require("utils.mappings-helper").which_key_register()
 end
 

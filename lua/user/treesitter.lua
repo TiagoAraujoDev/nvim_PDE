@@ -13,7 +13,10 @@ local M = {
   },
 }
 function M.config()
-  local _ = require "nvim-treesitter"
+  local status_ok, _ = pcall(require, "nvim-treesitter")
+  if not status_ok then
+    return
+  end
   local configs = require "nvim-treesitter.configs"
 
   configs.setup {

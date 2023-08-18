@@ -5,7 +5,12 @@ local M = {
 }
 
 M.config = function()
-  require("spectre").setup {
+  local status_ok, spectre = pcall(require, "spectre")
+  if not status_ok then
+    return
+  end
+
+  spectre.setup {
     color_devicons = true,
     open_cmd = "51vnew",
     live_update = false, -- auto execute search again when you write to any file in vim

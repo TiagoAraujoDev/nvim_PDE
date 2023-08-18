@@ -9,23 +9,29 @@ local M = {
       commit = "93e58e100f37ef4fb0f897deeed20599dae9d128",
     },
   },
-}
-
-local settings = {
-  ui = {
-    border = "none",
-    icons = {
-      package_installed = "◍",
-      package_pending = "◍",
-      package_uninstalled = "◍",
+  opts = {
+    ui = {
+      border = "rounded",
+      width = 0.8,
+      height = 0.8,
+      icons = {
+        package_installed = "◍",
+        package_pending = "◍",
+        package_uninstalled = "◍",
+      },
     },
+    log_level = vim.log.levels.INFO,
+    max_concurrent_installers = 4,
   },
-  log_level = vim.log.levels.INFO,
-  max_concurrent_installers = 4,
 }
 
-function M.config()
-  require("mason").setup(settings)
+function M.config(_, opts)
+  local status_ok, mason = pcall(require, "mason")
+  if not status_ok then
+    return
+  end
+
+  mason.setup(opts)
   require("mason-lspconfig").setup {
     ensure_installed = require("utils").servers,
     automatic_installation = true,

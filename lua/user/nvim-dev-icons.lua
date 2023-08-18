@@ -5,8 +5,14 @@ local M = {
 }
 
 function M.config()
+  local status_ok, devicons = pcall(require, "nvim-web-devicons")
+  if not status_ok then
+    return
+  end
+
   local get_icon = require("utils.icons").get_icon
-  require("nvim-web-devicons").setup {
+
+  devicons.setup {
     override = {
       zsh = {
         icon = "",
@@ -86,7 +92,7 @@ function M.config()
         name = "Typescript",
       },
       ["astro"] = {
-        icon = get_icon("Astro"),
+        icon = get_icon "Astro",
         color = "#FF6900",
         name = "Astro",
       },

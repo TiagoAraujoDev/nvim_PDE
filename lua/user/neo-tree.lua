@@ -6,9 +6,14 @@ local M = {
 }
 
 M.config = function()
+  local status_ok, neo_tree = pcall(require, "neo-tree")
+  if not status_ok then
+    return
+  end
+
   local get_icon = require("utils.icons").get_icon
 
-  require("neo-tree").setup {
+  neo_tree.setup {
     close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
@@ -33,27 +38,26 @@ M.config = function()
         padding = 1, -- extra padding on left hand side
         -- indent guides
         with_markers = true,
-        indent_marker = get_icon("LineMiddle"),
-        last_indent_marker = get_icon("LastIndentMarker"),
+        indent_marker = get_icon "LineMiddle",
+        last_indent_marker = get_icon "LastIndentMarker",
         highlight = "NeoTreeIndentMarker",
         -- expander config, needed for nesting files
         with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = get_icon("ChevronRight"),
-        expander_expanded = get_icon("ChevronDown"),
+        expander_collapsed = get_icon "ChevronRight",
+        expander_expanded = get_icon "ChevronDown",
         expander_highlight = "NeoTreeExpander",
       },
       icon = {
-        folder_closed = get_icon("Folder"),
-        folder_open = get_icon("FolderOpen"),
-        folder_empty = get_icon("EmptyFolderOpen"),
+        folder_closed = get_icon "Folder",
+        folder_open = get_icon "FolderOpen",
+        folder_empty = get_icon "EmptyFolderOpen",
         -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
         -- then these will never be used.
         default = "*",
         highlight = "NeoTreeFileIcon",
       },
       modified = {
-        -- symbol = "[+]",
-        symbol = get_icon("Modified"),
+        symbol = get_icon "Modified", -- symbol = "[+]",
         highlight = "NeoTreeModified",
       },
       name = {
@@ -66,14 +70,14 @@ M.config = function()
           -- Change type
           added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
           modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-          deleted = get_icon("FileDeleted"), -- this can only be used in the git_status source
-          renamed = get_icon("FileRenamed"), -- this can only be used in the git_status source
+          deleted = get_icon "FileDeleted", -- this can only be used in the git_status source
+          renamed = get_icon "FileRenamed", -- this can only be used in the git_status source
           -- Status type
-          untracked = get_icon("FileUntracked"),
-          ignored = get_icon("FileIgnored"),
-          unstaged = get_icon("FileUnstaged"),
-          staged = get_icon("FileStaged"),
-          conflict = get_icon("FileUnmerged"),
+          untracked = get_icon "FileUntracked",
+          ignored = get_icon "FileIgnored",
+          unstaged = get_icon "FileUnstaged",
+          staged = get_icon "FileStaged",
+          conflict = get_icon "FileUnmerged",
         },
       },
     },
@@ -146,7 +150,7 @@ M.config = function()
       },
       mappings = {
         ["<enter>"] = {
-          "toggle_node",
+          "open",
           nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
         },
         ["<2-LeftMouse>"] = "open",
@@ -156,10 +160,8 @@ M.config = function()
         ["l"] = "child_or_open",
         ["h"] = "parent_or_close",
         ["Y"] = "copy_selector",
-        -- ["S"] = "open_split",
-        -- ["s"] = "open_vsplit",
-        ["S"] = "split_with_window_picker",
-        ["s"] = "vsplit_with_window_picker",
+        ["S"] = "open_split",
+        ["s"] = "open_vsplit",
         ["t"] = "open_tabnew",
         -- ["<cr>"] = "open_drop",
         -- ["t"] = "open_tab_drop",

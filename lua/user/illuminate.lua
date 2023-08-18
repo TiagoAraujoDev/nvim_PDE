@@ -5,8 +5,11 @@ local M = {
 }
 
 function M.config()
-  -- TODO: make pcall()
-  local illuminate = require "illuminate"
+  local status_ok, illuminate = pcall(require, "illuminate")
+  if not status_ok then
+    return
+  end
+
   vim.g.Illuminate_ftblacklist = { "alpha", "NvimTree" }
   vim.api.nvim_set_keymap(
     "n",

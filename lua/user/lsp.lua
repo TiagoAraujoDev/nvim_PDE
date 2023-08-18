@@ -61,20 +61,11 @@ function M.config()
       goto continue
     end
 
-    -- if server == "tsserver" then
-    --   typescript.setup {
-    --     server = {
-    --       capabilities = capabilities,
-    --       on_attach = on_attach,
-    --     },
-    --   }
-    --   goto continue
-    -- end
-
     lspconfig[server].setup(Opts)
     ::continue::
   end
 
+  -- Attach Astro LSP
   require("lspconfig").astro.setup {
     on_attach = on_attach,
     capabilities = capabilities,

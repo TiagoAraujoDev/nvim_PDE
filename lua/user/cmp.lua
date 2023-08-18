@@ -69,6 +69,8 @@ function M.config()
 
   local kind_icons = {
     -- TODO: Add Array and Boolean icons
+    Array = get_icon "Array",
+    Boolean = get_icon "Boolean",
     Text = get_icon "Text",
     Method = get_icon "Method",
     Function = get_icon "Function",

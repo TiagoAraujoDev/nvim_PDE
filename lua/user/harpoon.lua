@@ -10,7 +10,7 @@ M.config = function()
     return
   end
 
-  harpoon.setup()
+  harpoon.setup {}
 end
 
 return M

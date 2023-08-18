@@ -1,7 +1,6 @@
 local M = {
   "nvim-lualine/lualine.nvim",
   commit = "0050b308552e45f7128f399886c86afefc3eb988",
-  -- event = { "VimEnter", "InsertEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
   event = { "BufReadPre" },
 }
 
@@ -42,14 +41,6 @@ function M.config()
     end,
     padding = 1,
   }
-
-  -- local filename = {
-  --   function()
-  --     local helper = require "utils.filename-helper"
-  --     local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " " .. get_icon("Modified", 1) or ""
-  --     return helper.filename() .. modified
-  --   end,
-  -- }
 
   local diagnostics = {
     "diagnostics",
