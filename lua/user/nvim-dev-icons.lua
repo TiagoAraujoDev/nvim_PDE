@@ -29,6 +29,11 @@ function M.config()
         color = "#f1502f",
         name = "Gitignore",
       },
+      [".gitkeep"] = {
+        icon = get_icon "Git",
+        color = "#f1502f",
+        name = "Gitignore",
+      },
       [".luacheckrc"] = {
         icon = get_icon "Lua",
         color = "#51A0CF",
