@@ -11,9 +11,6 @@ hl(0, "IlluminatedWordWrite", { bg = "#424A56", underline = false })
 hl(0, "IlluminatedWordWrite", { bg = "#424A56", underline = false })
 hl(0, "IlluminatedWordWrite", { bg = "#424A56", underline = false })
 
--- lualine hl
-hl(0, "DiagnosticWarn", { fg = "#e3c817" })
-
 -- Noice
 hl(0, "NoiceCmdlineLua", { fg = "#658594", bg = "#181616" })
 hl(0, "NoiceCmdlineHelp", { fg = "#658594", bg = "#181616" })
