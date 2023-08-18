@@ -32,7 +32,7 @@ M.config = function()
       "<cmd>lua vim.lsp.buf.definition()<CR>",
       { noremap = true, silent = true, desc = "GoTo definition" }
     )
-    keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true, desc = "Hover" })
+    keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true, desc = "Hover" })
     keymap(
       bufnr,
       "n",

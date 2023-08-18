@@ -18,6 +18,7 @@ maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
 maps.n["<leader>c"] = { "<cmd>Bdelete!<cr>", desc = "Close buffer" }
 maps.n["<leader>C"] = { "<cmd>e $MYVIMRC <CR>", desc = "Configuration files" }
 maps.n["<leader>a"] = { "<cmd>ene <BAR> startinsert <CR>", desc = "New file" }
+maps.n["<leader>S"] = { "<cmd>source %<cr>", desc = "Source nvim"}
 
 maps.n["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
 maps.n["k"] = { "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Move cursor up" }
@@ -33,9 +34,6 @@ maps.n["<C-Up>"] = { "<cmd>resize -2<CR>", desc = "Resize split up" }
 maps.n["<C-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" }
 maps.n["<C-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" }
 maps.n["<C-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" }
-
-maps.n["<S-l>"] = { "<cmd>bnext<CR>", desc = "Next buffer" }
-maps.n["<S-h>"] = { "<cmd>bprevious<CR>", desc = "Previous buffer" }
 
 -- Split window
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
@@ -202,7 +200,7 @@ maps.n["<leader>fW"] = {
 }
 maps.n["<leader>fp"] = {
   function()
-    require("telescope").extensions.projects.projects { initial_mode = "normal"}
+    require("telescope").extensions.projects.projects { initial_mode = "normal" }
   end,
   desc = "Find projects",
 }
