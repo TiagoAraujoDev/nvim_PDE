@@ -336,6 +336,7 @@ maps.n["<leader>bc"] = {
   "<cmd>cclose<cr>",
   desc = "Close bqf",
 }
+maps.n["<leader>bt"] = { "<cmd>TodoQuickFix<cr>", desc = "Todo comments" }
 
 -- Spectre
 maps.n["<leader>s"] = sections.s
