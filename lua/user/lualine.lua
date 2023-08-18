@@ -54,7 +54,11 @@ function M.config()
   local diff = {
     "diff",
     colored = true,
-    symbols = { added = get_icon("LineAdded", 1), modified = get_icon("LineModified", 1), removed = get_icon("LineRemoved", 1) }, -- changes diff symbols
+    symbols = {
+      added = get_icon("LineAdded", 1),
+      modified = get_icon("LineModified", 1),
+      removed = get_icon("LineRemoved", 1),
+    }, -- changes diff symbols
     cond = hide_in_width,
   }
 
