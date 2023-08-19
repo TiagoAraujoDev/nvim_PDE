@@ -36,7 +36,7 @@ M.snip_it = function()
     ext_opts = {
       [types.choiceNode] = {
         active = {
-          virt_text = { { " « ", "Normal" } },
+          virt_text = { { " « <C-l> to choice", "CursorLine" } },
         },
       },
     },
