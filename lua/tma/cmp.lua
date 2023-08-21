@@ -55,7 +55,6 @@ function M.config()
   local luasnip = require "luasnip"
   local lspkind = require "lspkind"
   local get_icon = require("utils.icons").get_icon
-  -- require("luasnip/loaders/from_vscode").lazy_load()
   require("snippets").snip_it()
 
   local check_backspace = function()

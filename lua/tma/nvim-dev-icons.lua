@@ -92,6 +92,7 @@ function M.config()
         name = "Michael_Jackson_script",
       },
       ["ts"] = {
+        -- FIX: Icon small
         icon = get_icon "Typescript",
         color = "#007acc",
         name = "Typescript",
