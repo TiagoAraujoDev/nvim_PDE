@@ -7,7 +7,7 @@ local extras = require "luasnip.extras"
 local rep = extras.rep
 local c = ls.choice_node
 local sn = ls.snippet_node
--- local t = ls.text_node
+local t = ls.text_node
 -- local types = require "luasnip.util.types"
 -- local f = ls.function_node
 -- local d = ls.dynamic_node
@@ -29,14 +29,14 @@ return {
     "class",
     fmt(
       [[
-    class {} {{
-      constructor({}) {{}};
-      
-      {}
-    }}
+      class {} {{
+        constructor({}) {{}};
+        
+        {}
+      }}
 
-    export {{ {} }};
-    ]],
+      export {{ {} }};
+      ]],
       {
         i(1, "class_name"),
         i(2),
@@ -49,17 +49,40 @@ return {
     "func",
     fmt(
       [[
-    function {}({}) {{
-      {}
-    }}
+      {} function {}({}){} {{
+        {}
+      }}
 
-    export {{ {} }};
-    ]],
+      export {{ {} }};
+      ]],
       {
-        i(1, "func_name"),
+        c(1, {
+          t "async",
+          t "",
+        }),
+        i(2, "func_name"),
+        i(3),
+        c(4, {
+          t "",
+          sn(nil, fmt(": {}", i(1))),
+        }),
+        i(0),
+        rep(2),
+      }
+    )
+  ),
+  s(
+    "array_func",
+    fmt(
+      [[
+      const {} = ({}) => {{
+        {}
+      }};
+      ]],
+      {
+        i(1, "name"),
         i(2),
         i(0),
-        rep(1),
       }
     )
   ),
@@ -67,10 +90,10 @@ return {
     "interface",
     fmt(
       [[
-        interface {} {{
-          {}
-        }}
-        ]],
+      interface {} {{
+        {}
+      }}
+      ]],
       {
         i(1, "name"),
         i(0),

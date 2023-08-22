@@ -13,7 +13,22 @@ local fmt = require("luasnip.extras.fmt").fmt
 -- local d = ls.dynamic_node
 -- local parse = require("luasnip.util.parser").parse_snippet
 return {
-  s("sysouf", fmt([[System.out.printf("{}", {});]], { i(1), i(0) })),
-  s("sysout", fmt([[System.out.print({});]], { i(0) })),
-  s("sysoul", fmt([[System.out.println({});]], { i(0) })),
+  s("cout", fmt([[std::cout << {} << std::endl;]], { i(1, "value") })),
+  s("cin", fmt([[std::cin >> {};]], { i(1, "variable") })),
+  s(
+    "main",
+    fmt(
+      [[
+      #include <iostream>
+      
+      int
+      main()
+      {{
+        {}
+        return 0;
+      }}
+      ]],
+      { i(1) }
+    )
+  ),
 }

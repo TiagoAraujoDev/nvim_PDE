@@ -16,21 +16,21 @@ local rep = extras.rep
 return {
   s("cl", fmt([[console.log({})]], { i(0, "value") })),
   s(
-    "comp",
+    "rfc",
     fmt(
       [[
-        import React from "react";
-        
-        const {}{} = ({}) => {{
-          return (
-            <div>
-              <h1>{}</h1>
-            </div>
-          );
-        }};
-        
-        export {{ {} }};
-        ]],
+      import React from "react";
+      
+      const {}{} = ({}) => {{
+        return (
+          <div>
+            <h1>{}</h1>
+          </div>
+        );
+      }};
+      
+      export {{ {} }};
+      ]],
       {
         i(1, "Component_name"),
         c(2, {
@@ -47,10 +47,10 @@ return {
     "interface",
     fmt(
       [[
-        interface {} {{
-          {}
-        }}
-        ]],
+      interface {} {{
+        {}
+      }}
+      ]],
       {
         i(1, "name"),
         i(0),

@@ -12,12 +12,11 @@ M.snip_it = function()
   -- local t = ls.text_node
   -- local i = ls.insert_node
   -- local c = ls.choice_node
+  -- local f = ls.function_node
+  -- local d = ls.dynamic_node
   -- local fmt = require("luasnip.extras.fmt").fmt
   -- local extras = require "luasnip.extras"
   -- local rep = extras.rep
-  -- local f = ls.function_node
-  -- local d = ls.dynamic_node
-  -- local parse = require("luasnip.util.parser").parse_snippet
 
   ls.config.set_config {
     -- This tells LuaSnip to remember to keep around the last snippet.
@@ -44,6 +43,7 @@ M.snip_it = function()
   ls.add_snippets("java", require("snippets.ft.java"))
   ls.add_snippets("typescriptreact", require("snippets.ft.typescriptreact"))
   ls.add_snippets("typescript", require("snippets.ft.typescript"))
+  ls.add_snippets("cpp", require("snippets.ft.cpp"))
 
   -- require("luasnip/loaders/from_vscode").lazy_load { include = { "java" } }
 
