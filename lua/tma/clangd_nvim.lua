@@ -102,6 +102,9 @@ M.config = function()
     -- compile (g++)
     keymap(bufnr, "n", "<leader>lc", "<cmd>!g++ %<CR>", { noremap = true, silent = true, desc = "Compile C/C++ code" })
 
+    -- when using Microsoft style guide
+    vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
+    vim.opt.tabstop = 4 -- insert 4 spaces for a tab
     require("illuminate").on_attach(client)
   end
 

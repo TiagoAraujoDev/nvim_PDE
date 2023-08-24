@@ -6,8 +6,8 @@ local fmt = require("luasnip.extras.fmt").fmt
 local extras = require "luasnip.extras"
 local rep = extras.rep
 local c = ls.choice_node
-local sn = ls.snippet_node
 local t = ls.text_node
+-- local sn = ls.snippet_node
 -- local types = require "luasnip.util.types"
 -- local f = ls.function_node
 -- local d = ls.dynamic_node
@@ -15,13 +15,11 @@ local t = ls.text_node
 
 return {
   s("cl", fmt([[console.log({});]], { i(0, "value") })),
+  s("cld", fmt([[console.log("{}: ", {});]], { i(1, "debug_info"), i(0, "variable") })),
   s(
-    "import",
-    fmt([[import {} from "{}";]], {
-      c(1, {
-        sn(nil, fmt("{}", i(1))),
-        sn(nil, fmt("{{ {} }}", i(1))),
-      }),
+    "req",
+    fmt([[const {} = require("{}");]], {
+      i(1, "name"),
       i(0, "module"),
     })
   ),
@@ -35,7 +33,7 @@ return {
         {}
       }}
 
-      export {{ {} }};
+      module.export = {};
       ]],
       {
         i(1, "class_name"),
@@ -49,11 +47,11 @@ return {
     "func",
     fmt(
       [[
-      {}function {}({}){} {{
+      {}function {}({}) {{
         {}
       }}
 
-      export {{ {} }};
+      module.export = {};
       ]],
       {
         c(1, {
@@ -62,10 +60,6 @@ return {
         }),
         i(2, "func_name"),
         i(3),
-        c(4, {
-          t "",
-          sn(nil, fmt(": {}", i(1))),
-        }),
         i(0),
         rep(2),
       }
@@ -87,15 +81,14 @@ return {
     )
   ),
   s(
-    "interface",
+    "mod",
     fmt(
       [[
-      interface {} {{
+      module.export = {{
         {}
       }}
       ]],
       {
-        i(1, "name"),
         i(0),
       }
     )

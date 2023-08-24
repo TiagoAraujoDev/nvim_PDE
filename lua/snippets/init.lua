@@ -43,6 +43,7 @@ M.snip_it = function()
   ls.add_snippets("java", require("snippets.ft.java"))
   ls.add_snippets("typescriptreact", require("snippets.ft.typescriptreact"))
   ls.add_snippets("typescript", require("snippets.ft.typescript"))
+  ls.add_snippets("javascript", require("snippets.ft.javascript"))
   ls.add_snippets("cpp", require("snippets.ft.cpp"))
 
   -- require("luasnip/loaders/from_vscode").lazy_load { include = { "java" } }

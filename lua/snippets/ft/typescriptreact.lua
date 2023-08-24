@@ -57,4 +57,35 @@ return {
       }
     )
   ),
+  s(
+    "us",
+    fmt(
+      [[
+      const [{}, {}] = useState{}({});
+      ]],
+      {
+        i(1, "state"),
+        i(2, "dispatch"),
+        c(3, {
+          t "",
+          sn(nil, fmt("<{}>", i(1))),
+        }),
+        i(0),
+      }
+    )
+  ),
+  s(
+    "ue",
+    fmt(
+      [[
+      useEffect(() => {{
+        {}
+      }}, [{}]);
+      ]],
+      {
+        i(0),
+        i(1, "dependencies"),
+      }
+    )
+  ),
 }
