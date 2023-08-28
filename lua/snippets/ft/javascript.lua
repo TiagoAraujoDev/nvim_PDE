@@ -15,7 +15,20 @@ local t = ls.text_node
 
 return {
   s("cl", fmt([[console.log({});]], { i(0, "value") })),
-  s("cld", fmt([[console.log("{}: ", {});]], { i(1, "debug_info"), i(0, "variable") })),
+  s("ce", fmt([[console.error({});]], { i(0, "value") })),
+  s(
+    "cld",
+    fmt(
+      [[
+      // BUG: Debug log
+      console.log("{}: ", {});
+      ]],
+      {
+        i(1, "debug_info"),
+        i(0, "variable"),
+      }
+    )
+  ),
   s(
     "req",
     fmt([[const {} = require("{}");]], {

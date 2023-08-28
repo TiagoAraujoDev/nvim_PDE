@@ -45,7 +45,7 @@ M.setup = function()
       file_icon = ""
     end
 
-    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color, bg = "#181616" })
+    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
 
     local icon = string.format("%%#%s#%s ", hl_group, file_icon)
     local filename = string.format("%%#Normal#%s ", file_name)
@@ -56,7 +56,7 @@ M.setup = function()
     modified = string.format("%%#Normal#%s", modified)
 
     if #segments == 1 or type(segments) == "string" then
-      return icon .. filename .. modified
+      return " " .. icon .. filename .. modified
     end
 
     local path_name_table = {}
