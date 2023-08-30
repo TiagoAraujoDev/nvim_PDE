@@ -165,7 +165,7 @@ local icons = {
   Watches = "󰂥",
 }
 
-function M.get_icon(kind, padding, fallback)
+M.get_icon = function(kind, padding, fallback)
   local icon = icons[kind]
   if icon then
     return icon .. string.rep(" ", padding or 0)

@@ -4,7 +4,7 @@ local M = {}
 ---@param sc string The keybinding string to convert to a button
 ---@param txt string The explanation text of what the keybinding does
 ---@return table # A button entity table for an alpha configuration
-function M.alpha_button(sc, txt)
+M.alpha_button = function(sc, txt)
   -- replace <leader> in shortcut text with LDR for nicer printing
   local sc_ = sc:gsub("%s", ""):gsub("LDR", "<leader>")
   -- if the leader is set, replace the text with the actual leader key for nicer printing

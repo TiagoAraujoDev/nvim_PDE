@@ -1,10 +1,10 @@
 local M = {}
 
-local isempty = function(text)
+local is_empty = function(text)
   return text == nil or text == ""
 end
 
-local getPathTable = function(path)
+local get_path_table = function(path)
   if not string.find(path, "/") then
     return path
   end
@@ -21,18 +21,18 @@ end
 
 M.setup = function()
   local get_icon = require("utils.icons").get_icon
-  local segments = getPathTable(vim.fn.expand "%:.")
+  local segments = get_path_table(vim.fn.expand "%:.")
   local file_name = segments[#segments] or segments
 
   local extension = ""
   local file_icon = ""
   local file_icon_color = ""
 
-  if not isempty(file_name) then
+  if not is_empty(file_name) then
     extension = vim.fn.expand "%:e"
 
     local default = false
-    if isempty(extension) then
+    if is_empty(extension) then
       extension = ""
       default = true
     end
