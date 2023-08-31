@@ -42,6 +42,12 @@ function M.config()
     padding = 1,
   }
 
+  local filetype = {
+    "filetype",
+    icons_enabled = true,
+    colored = true,
+  }
+
   local diagnostics = {
     "diagnostics",
     sources = { "nvim_diagnostic" },
@@ -124,7 +130,7 @@ function M.config()
     sections = {
       lualine_a = { mode },
       lualine_b = { "branch" },
-      lualine_c = { diagnostics },
+      lualine_c = { filetype, diagnostics },
       lualine_x = { diff, lsp, treesitter },
       lualine_y = { location },
       lualine_z = { "progress" },
