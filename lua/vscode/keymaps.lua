@@ -40,7 +40,7 @@ local opts = { silent = true }
 
 -- vim remaps
 keymap("v", "p", '"_dP', opts)
--- keymap("i", "kj", "<ESC>")
+keymap("i", "kj", "<esc>", opts)
 
 -- vscode remaps
 keymap("v", "<leader>/", Vscode_blockComment)
