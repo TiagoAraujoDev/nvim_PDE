@@ -39,6 +39,7 @@ M.config = function()
         prompt_position = "top",
       },
       sorting_strategy = "ascending",
+      preview = false
     },
     extensions = {
       ["ui-select"] = {
