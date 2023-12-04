@@ -7,6 +7,7 @@ M.servers = {
   "tsserver",
   "tailwindcss",
   "prismals",
+  "marksman",
   "pyright",
   "bashls",
   "jsonls",
@@ -14,7 +15,6 @@ M.servers = {
   "emmet_ls",
   "jdtls",
   "lemminx",
-  "prosemd_lsp",
   "clangd",
   "gopls"
 }
