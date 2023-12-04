@@ -160,6 +160,7 @@ function M.config()
       { name = "luasnip" },
       { name = "buffer", keyword_length = 5 },
       { name = "path" },
+      { name = "neorg" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,

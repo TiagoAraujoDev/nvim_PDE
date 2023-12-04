@@ -4,12 +4,16 @@ local get_icon = require("utils.icons").get_icon
 
 local sections = {
   f = { desc = get_icon("Telescope", 1) .. "Telescope" },
+  d = { desc = get_icon("Note", 1) .. "Neorg" },
   l = { desc = get_icon("Lsp", 1) .. "LSP" },
   b = { desc = get_icon("Bqf", 1) .. "Bqf" },
   g = { desc = get_icon("Git", 1) .. "Git" },
   s = { desc = get_icon("Spectre", 1) .. "Spectre" },
   t = { desc = get_icon("Trouble", 1) .. "Trouble" },
 }
+
+maps.n["<leader>dw"] = { "<cmd>Neorg workspace notes<cr>", desc = "Open workspace" }
+maps.n["<localleader>a"] = { "<cmd>echo 'hello'<cr>", desc = "test" }
 
 -- Normal --
 -- Standard Operations
@@ -37,7 +41,7 @@ maps.n["<C-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split righ
 
 -- Split window
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
-maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
+maps.n["-"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
 
 -- Clear highlights
 maps.n["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "Disable hl search" }
