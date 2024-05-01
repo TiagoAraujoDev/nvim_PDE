@@ -1,6 +1,4 @@
-local M = {}
-
-M.servers = {
+return {
   "lua_ls",
   "cssls",
   "html",
@@ -16,7 +14,5 @@ M.servers = {
   "jdtls",
   "lemminx",
   "clangd",
-  "gopls"
+  "gopls",
 }
-
-return M

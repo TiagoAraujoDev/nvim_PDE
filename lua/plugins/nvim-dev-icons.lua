@@ -102,6 +102,26 @@ function M.config()
         color = "#FF6900",
         name = "Astro",
       },
+      ["controller.ts"] = {
+        icon = get_icon "Cat",
+        color = "#007acc",
+        name = "nest_controller",
+      },
+      ["module.ts"] = {
+        icon = get_icon "Cat",
+        color = "#007acc",
+        name = "nest_controller",
+      },
+      ["service.ts"] = {
+        icon = get_icon "Cat",
+        color = "#007acc",
+        name = "nest_controller",
+      },
+      ["hbs"] = {
+        icon = get_icon "Mustache",
+        color = "#FF6900",
+        name = "handlebars",
+      },
     },
   }
 end

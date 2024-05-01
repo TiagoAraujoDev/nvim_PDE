@@ -51,27 +51,36 @@ M.setup = function()
     local filename = string.format("%%#Normal#%s ", file_name)
     local divider = string.format("%%#WinBar# %s", get_icon("DividerRight", 1))
     local ellipsis = string.format("%%#WinBar# %s", get_icon("Ellipsis", 1))
+    local tilde = string.format("%%#WinBar# %s", get_icon("Tilde", 1))
 
     local modified = vim.api.nvim_eval_statusline("%m", {}).str == "[+]" and " " .. get_icon("Modified", 1) or ""
     modified = string.format("%%#Normal#%s", modified)
 
     if #segments == 1 or type(segments) == "string" then
-      return " " .. icon .. filename .. modified
+      return " " .. icon .. " " .. filename .. modified
     end
 
     local path_name_table = {}
     for index, value in ipairs(segments) do
       if index == 1 and #segments > 1 then
-        table.insert(path_name_table, ellipsis)
+        table.insert(path_name_table, tilde)
+      elseif #segments > 4 and index < #segments / 2 then
+        if index == 2 then
+          table.insert(path_name_table, divider)
+          table.insert(path_name_table, ellipsis)
+        end
+        goto continue
       elseif index == #segments then
         goto continue
       end
+
       table.insert(path_name_table, divider)
       table.insert(path_name_table, value)
+
       ::continue::
     end
 
-    return table.concat(path_name_table) .. divider .. icon .. filename .. modified
+    return table.concat(path_name_table) .. divider .. icon .. " " .. filename .. modified
   end
 end
 
