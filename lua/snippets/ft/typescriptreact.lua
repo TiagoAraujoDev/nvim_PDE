@@ -16,6 +16,19 @@ local rep = extras.rep
 return {
   s("cl", fmt([[console.log({})]], { i(0, "value") })),
   s(
+    "cld",
+    fmt(
+      [[
+      // BUG: Debug log
+      console.log("{}: ", {});
+      ]],
+      {
+        i(1, "debug_info"),
+        i(0, "value"),
+      }
+    )
+  ),
+  s(
     "rfc",
     fmt(
       [[
@@ -44,7 +57,7 @@ return {
     )
   ),
   s(
-    "interface",
+    "iface",
     fmt(
       [[
       interface {} {{

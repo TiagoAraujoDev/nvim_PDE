@@ -60,7 +60,7 @@ return {
     )
   ),
   s(
-    "func",
+    "f",
     fmt(
       [[
       {}function {}({}){} {{
@@ -86,7 +86,7 @@ return {
     )
   ),
   s(
-    "arrow_func",
+    "a",
     fmt(
       [[
       const {} = ({}) => {{
@@ -101,7 +101,7 @@ return {
     )
   ),
   s(
-    "interface",
+    "iface",
     fmt(
       [[
       interface {} {{
