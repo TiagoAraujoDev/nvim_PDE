@@ -10,6 +10,7 @@ local sections = {
   s = { desc = get_icon("Spectre", 1) .. "Spectre" },
   t = { desc = get_icon("Trouble", 1) .. "Trouble" },
   o = { desc = get_icon("Note", 1) .. "Obsidian" },
+  m = { desc = get_icon("Note", 1) .. "Markdown" }
 }
 
 -- Normal --
@@ -85,6 +86,13 @@ maps.n["<leader>os"] = { "<cmd>ObsidianSearch<cr>", desc = "Search Notes" }
 maps.n["<leader>oc"] = { "<cmd>ObsidianToggleCheckbox<cr>", desc = "Toggle checkbox" }
 
 maps.v["<leader>ol"] = { "<cmd>ObsidianDailies<cr>", desc = "Create a new link from selection" }
+
+-- Markdown Preview
+maps.n["<leader>m"] = sections.m
+maps.n["<leader>mp"] = { "<cmd>MarkdownPreview<cr>", desc = "Open preview on the browser" }
+maps.n["<leader>mt"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle preview" }
+maps.n["<leader>ms"] = { "<cmd>MarkdownPreviewStop<cr>", desc = "Stop preview" }
+
 -- NeoTree
 maps.n["<leader>e"] = { "<cmd>Neotree float toggle<cr>", desc = "Toggle Explorer" }
 

@@ -65,9 +65,9 @@ autocmd({ "User", "BufEnter" }, {
 autocmd("FileType", {
   desc = "Set wordwrap and spell checking in git and markdown files",
   group = autogroup("wordwrap_spell", { clear = true }),
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "gitcommit", "markdown", "mdx" },
   callback = function()
-    vim.opt_local.wrap = true
+    vim.opt_local.wrap = false
     vim.opt_local.spell = true
   end,
 })
