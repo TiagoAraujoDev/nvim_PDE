@@ -4,16 +4,13 @@ local get_icon = require("utils.icons").get_icon
 
 local sections = {
   f = { desc = get_icon("Telescope", 1) .. "Telescope" },
-  d = { desc = get_icon("Note", 1) .. "Neorg" },
   l = { desc = get_icon("Lsp", 1) .. "LSP" },
   b = { desc = get_icon("Bqf", 1) .. "Bqf" },
   g = { desc = get_icon("Git", 1) .. "Git" },
   s = { desc = get_icon("Spectre", 1) .. "Spectre" },
   t = { desc = get_icon("Trouble", 1) .. "Trouble" },
+  o = { desc = get_icon("Note", 1) .. "Obsidian" },
 }
-
-maps.n["<leader>dw"] = { "<cmd>Neorg workspace notes<cr>", desc = "Open workspace" }
-maps.n["<localleader>a"] = { "<cmd>echo 'hello'<cr>", desc = "test" }
 
 -- Normal --
 -- Standard Operations
@@ -75,18 +72,21 @@ maps.n["<leader>n"] = {
   desc = "Dismiss notifications",
 }
 
+-- Obsidian
+maps.n["<leader>o"] = sections.o
+maps.n["<leader>oo"] = { "<cmd>ObsidianOpen<cr>", desc = "Open in Obsidian app" }
+maps.n["<leader>on"] = { "<cmd>ObsidianNew<cr>", desc = "Create a new note" }
+maps.n["<leader>ol"] = { "<cmd>ObsidianLinks<cr>", desc = "Show all the links in the note" }
+maps.n["<leader>ob"] = { "<cmd>ObsidianBackLinks<cr>", desc = "Show back link" }
+maps.n["<leader>od"] = { "<cmd>ObsidianDailies<cr>", desc = "Generate a daily note" }
+maps.n["<leader>oq"] = { "<cmd>ObsidianQuickSwitch<cr>", desc = "Show all the files" }
+maps.n["<leader>or"] = { "<cmd>ObsidianRename<cr>", desc = "Rename note" }
+maps.n["<leader>os"] = { "<cmd>ObsidianSearch<cr>", desc = "Search Notes" }
+maps.n["<leader>oc"] = { "<cmd>ObsidianToggleCheckbox<cr>", desc = "Toggle checkbox" }
+
+maps.v["<leader>ol"] = { "<cmd>ObsidianDailies<cr>", desc = "Create a new link from selection" }
 -- NeoTree
 maps.n["<leader>e"] = { "<cmd>Neotree float toggle<cr>", desc = "Toggle Explorer" }
-maps.n["<leader>o"] = {
-  function()
-    if vim.bo.filetype == "neo-tree" then
-      vim.cmd.wincmd "p"
-    else
-      vim.cmd.Neotree "focus"
-    end
-  end,
-  desc = "Toggle Explorer Focus",
-}
 
 -- Telescope
 maps.n["<leader>f"] = sections.f

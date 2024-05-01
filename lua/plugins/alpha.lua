@@ -38,7 +38,6 @@ function M.config()
     button("LDR f f", get_icon("FindFile", 1) .. " Find file"),
     button("LDR f p", get_icon("Repository", 1) .. " Find project"),
     button("LDR f w", get_icon("FindText", 1) .. " Find text"),
-    button("LDR d w", get_icon("Note", 1) .. " Neorg"),
     button("LDR   C", get_icon("Gear", 1) .. " Configuration"),
     button("LDR   q", get_icon("Quit", 1) .. " Quit"),
   }
