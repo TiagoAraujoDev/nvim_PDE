@@ -122,7 +122,7 @@ maps.n["<leader>f/"] = {
 }
 maps.n["<leader>fb"] = {
   function()
-    require("telescope.builtin").buffers()
+    require("telescope.builtin").buffers { initial_mode = "normal"}
   end,
   desc = "Find buffers",
 }
