@@ -47,6 +47,10 @@ maps.n["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "Disable hl search" }
 -- Better paste
 maps.v["p"] = { '"_dP', desc = "Better paste" }
 
+-- Moving lines
+maps.v["<M-j>"] = { ":m '>+1<CR>gv=gv", desc = "Move line(s) upwards", silent = true }
+maps.v["<M-k>"] = { ":m '<-2<CR>gv=gv", desc = "Move line(s) downwards", silent = true}
+
 -- Stay in indent mode
 maps.v["<"] = { "<gv", desc = "Unindent line" }
 maps.v[">"] = { ">gv", desc = "Indent line" }
