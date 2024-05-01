@@ -1,9 +1,7 @@
 local M = {
-  "nvimtools/none-ls.nvim", -- none-ls
-  -- "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   event = "BufReadPre",
-  commit = "f5632db2491fbe02b54f1a321a98548a8ba2bd15", -- none-ls
-  -- commit = "60b4a7167c79c7d04d1ff48b55f2235bf58158a7",
+  commit = "f5632db2491fbe02b54f1a321a98548a8ba2bd15",
   dependencies = {
     {
       "nvim-lua/plenary.nvim",
@@ -55,7 +53,6 @@ function M.config()
 
       formatting.black.with { extra_args = { "--fast" } },
       require("none-ls.diagnostics.flake8"),
-      -- diagnostics.flake8,
     },
   }
 end
