@@ -152,6 +152,7 @@ M.opts = function()
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
       "-Dlog.protocol=true",
       "-Dlog.level=ALL",
+      "-javaagent:" .. vim.fn.expand "$MASON/packages/jdtls/lombok.jar",
       "-Xmx1g",
       "--add-modules=ALL-SYSTEM",
       "--add-opens",
@@ -193,6 +194,8 @@ M.config = function(_, opts)
   vim.api.nvim_create_autocmd("Filetype", {
     pattern = "java", -- autocmd to start jdtls
     callback = function()
+      vim.opt.shiftwidth = 4
+      vim.opt.tabstop = 4
       if opts.root_dir and opts.root_dir ~= "" then
         require("jdtls").start_or_attach(opts)
       else

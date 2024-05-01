@@ -16,4 +16,13 @@ return {
   s("sysouf", fmt([[System.out.printf("{}", {});]], { i(1), i(0) })),
   s("sysout", fmt([[System.out.print({});]], { i(0) })),
   s("sysoul", fmt([[System.out.println({});]], { i(0) })),
+  s("main",
+    fmt(
+      [[
+        public static void main(String[] args) {{
+            {}
+        }}
+      ]],
+      { i(0) }
+    )),
 }
