@@ -16,7 +16,7 @@ local M = {
         path = "~/obsidian_vault/",
       },
     },
-    mappings = {}
+    mappings = nil
   },
 }
 
