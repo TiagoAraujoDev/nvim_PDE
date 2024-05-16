@@ -109,6 +109,7 @@ local icons = {
   -- Lsp = "",
   Lsp = "",
   Lua = "",
+  Markdown = "",
   Method = "",
   Modified = "󰛿",
   Module = "",

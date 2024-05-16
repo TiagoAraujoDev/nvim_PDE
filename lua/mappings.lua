@@ -10,7 +10,7 @@ local sections = {
   s = { desc = get_icon("Spectre", 1) .. "Spectre" },
   t = { desc = get_icon("Trouble", 1) .. "Trouble" },
   o = { desc = get_icon("Note", 1) .. "Obsidian" },
-  m = { desc = get_icon("Note", 1) .. "Markdown" }
+  m = { desc = get_icon("Markdown", 1) .. "Markdown" }
 }
 
 -- Normal --
